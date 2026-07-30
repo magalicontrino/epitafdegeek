@@ -103,7 +103,7 @@ const html = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EPITAF de geek — l'annuaire des derniers mots</title>
-  <meta name="description" content="EPITAF de geek : le recueil collaboratif des phrases qui méritent de finir gravées dans le marbre. Proposez la vôtre.">
+  <meta name="description" content="EPITAF de geek : le recueil collaboratif des phrases qui méritent de finir gravées dans la ROM. Proposez la vôtre.">
   <meta property="og:title" content="EPITAF de geek">
   <meta property="og:description" content="Le cimetière des derniers mots de geeks. ${epitaphs.length} épitaphes gravées.">
   <meta property="og:type" content="website">
@@ -146,7 +146,7 @@ const html = `<!doctype html>
   <section class="hero">
     <h1 class="hero__title">Une vie entière pour trouver la bonne <em>dernière</em> phrase.</h1>
     <p class="hero__sub">
-      EPITAF collecte les phrases qui méritent de finir gravées dans le marbre&nbsp;:
+      EPITAF collecte les phrases qui méritent de finir gravées dans la ROM&nbsp;:
       le point-virgule oublié, la sauvegarde prévue pour demain, le déploiement
       du vendredi 18&nbsp;h, le <code>rm -rf</code> tapé dans le mauvais terminal.
       Chaque proposition passe par la modération avant d'entrer au cimetière.
