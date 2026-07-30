@@ -6,6 +6,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "build": "node src/build-static.js",
     "dev": "node --watch src/server.js",
     "reset-password": "node src/reset-password.js"
   },

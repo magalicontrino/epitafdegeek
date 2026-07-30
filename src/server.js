@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { db, verifyPassword } from './db.js';
+import { CATEGORIES } from './categories.js';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = join(rootDir, 'public');
@@ -16,11 +17,6 @@ const SESSION_TTL_MS = 1000 * 60 * 60 * 12; // 12 h
 // À n'activer QUE dans ce cas : sinon n'importe qui pourrait se fabriquer
 // un faux X-Forwarded-For et contourner la limite anti-spam.
 const TRUST_PROXY = process.env.TRUST_PROXY === '1';
-
-export const CATEGORIES = [
-  'Dev', 'Sysadmin', 'Web', 'Réseau', 'Hardware',
-  'Gaming', 'Sci-fi', 'IA', 'Divers',
-];
 
 const MAX_TEXT = 240;
 const MAX_AUTHOR = 40;
