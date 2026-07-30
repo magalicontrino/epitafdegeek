@@ -147,8 +147,9 @@ const html = `<!doctype html>
     <h1 class="hero__title">Une vie entière pour trouver la bonne <em>dernière</em> phrase.</h1>
     <p class="hero__sub">
       EPITAF collecte les phrases qui méritent de finir gravées dans le marbre&nbsp;:
-      les erreurs 404, les sauvegardes oubliées, les déploiements du vendredi soir.
-      Chaque proposition passe entre les mains de Steph et Mag avant d'entrer au cimetière.
+      le point-virgule oublié, la sauvegarde prévue pour demain, le déploiement
+      du vendredi 18&nbsp;h, le <code>rm -rf</code> tapé dans le mauvais terminal.
+      Chaque proposition passe par la modération avant d'entrer au cimetière.
     </p>
     <div class="hero__actions">
       <a class="btn" href="#proposer">Proposer une épitaphe</a>
@@ -210,8 +211,8 @@ ${tombsHtml}
       </p>
       <ol class="submit__steps">
         <li><b>01</b><span>Vous écrivez la phrase et choisissez une allée.</span></li>
-        <li><b>02</b><span>Elle arrive dans la boîte des gardiens.</span></li>
-        <li><b>03</b><span>Steph ou Mag valide — et elle est gravée.</span></li>
+        <li><b>02</b><span>Elle part en modération.</span></li>
+        <li><b>03</b><span>La modération tranche — et elle est gravée.</span></li>
       </ol>
     </div>
 
@@ -373,7 +374,7 @@ ${tombsHtml}
       .then(function (res) {
         if (!res.ok) throw new Error('refus du service');
         notice.className = 'notice is-visible notice--ok';
-        notice.textContent = 'Proposition envoyée. Elle apparaîtra après validation par Steph ou Mag.';
+        notice.textContent = 'Proposition envoyée. Elle apparaîtra une fois validée par la modération.';
         form.reset();
         counter.textContent = '0 / 240';
       })

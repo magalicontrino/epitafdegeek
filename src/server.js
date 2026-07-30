@@ -230,7 +230,7 @@ async function handleApi(req, res, url) {
     `).run(clean.text, clean.author, clean.category, new Date().toISOString(), ipHash);
 
     return sendJson(res, 201, {
-      message: 'Proposition enregistrée. Elle apparaîtra après validation par Steph ou Mag.',
+      message: 'Proposition enregistrée. Elle apparaîtra une fois validée par la modération.',
     });
   }
 
