@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modération — EPITAF de geek</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker__inner">
+    <span class="ticker__label">Espace gardiens&nbsp;·</span>
+    <div class="ticker__scroll">
+      <div class="ticker__track" style="animation:none;padding-left:0">
+        <span>Zone réservée à Stéphane et Magali — rien n'est publié sans votre accord</span>
+      </div>
+    </div>
+    <a class="micro micro--red" href="/">← RETOUR AU CIMETIÈRE</a>
+  </div>
+</div>
+
+<div class="shell">
+
+  <header class="masthead">
+    <a class="brand" href="/">
+      <div class="brand__flag" aria-hidden="true"></div>
+      <div class="brand__text">
+        <div class="brand__name">EPIT<em>A</em>F</div>
+        <div class="brand__tag">Salle de modération</div>
+      </div>
+    </a>
+    <div class="nav">
+      <span class="micro micro--mute">Toute épitaphe proposée passe ici avant d'être gravée.</span>
+    </div>
+    <div class="nav nav--right">
+      <div class="who" id="who" hidden>
+        <span class="dot dot--green"></span>
+        <span>Connecté&nbsp;: <b id="who-name"></b></span>
+        <button class="btn btn--ghost btn--sm" type="button" id="logout">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CONNEXION ============ -->
+  <section class="login-wrap" id="login-section">
+    <form class="login" id="login-form" novalidate>
+      <div class="login__head">
+        <span class="micro" style="color:var(--red)">Accès restreint</span>
+        <h1 style="margin-top:8px">Qui garde le cimetière&nbsp;?</h1>
+      </div>
+      <div class="login__body">
+        <div class="notice" id="login-notice" role="alert"></div>
+        <div class="field">
+          <div class="field__label"><span class="micro">Identifiant</span></div>
+          <input type="text" id="l-user" autocomplete="username" placeholder="stephane ou magali" required>
+        </div>
+        <div class="field">
+          <div class="field__label"><span class="micro">Mot de passe</span></div>
+          <input type="password" id="l-pass" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn--red" type="submit" id="login-btn">Entrer <span aria-hidden="true">→</span></button>
+        <p class="field__hint" style="margin:0">
+          Mots de passe générés au premier démarrage, dans
+          <code style="font-family:var(--font-mono)">data/IDENTIFIANTS-ADMIN.txt</code>.
+        </p>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============ FILE DE MODÉRATION ============ -->
+  <section id="mod-section" hidden>
+    <div class="section-head">
+      <h2 class="section-head__title">File de modération</h2>
+      <p class="section-head__meta" id="queue-meta">—</p>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab is-active" type="button" data-status="pending">
+        En attente <span class="tab__n" data-count="pending">0</span>
+      </button>
+      <button class="tab" type="button" data-status="approved">
+        Gravées <span class="tab__n" data-count="approved" style="background:var(--ink)">0</span>
+      </button>
+      <button class="tab" type="button" data-status="rejected">
+        Refusées <span class="tab__n" data-count="rejected" style="background:var(--ink-mute)">0</span>
+      </button>
+    </div>
+
+    <div class="cells queue" id="queue"></div>
+  </section>
+</div>
+
+<div class="colophon">
+  <span>EPITAF de geek — salle de modération.</span>
+  <span>Les sessions expirent au bout de 12&nbsp;heures.</span>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>

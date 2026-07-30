@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPITAF de geek — l'annuaire des derniers mots</title>
+  <meta name="description" content="EPITAF de geek : le recueil collaboratif des phrases qui feront une bonne épitaphe de geek. Proposez la vôtre, elle passe devant les gardiens du cimetière.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- ============ BANDEAU DÉFILANT ============ -->
+<div class="ticker">
+  <div class="ticker__inner">
+    <span class="ticker__label">Dernières volontés&nbsp;·</span>
+    <div class="ticker__scroll">
+      <div class="ticker__track" id="ticker">
+        <span>Chargement du cimetière…</span>
+      </div>
+    </div>
+    <a class="micro micro--red" href="#proposer">AJOUTER LA VÔTRE →</a>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- ============ EN-TÊTE ============ -->
+  <header class="masthead">
+    <div class="brand">
+      <div class="brand__flag" aria-hidden="true"></div>
+      <div class="brand__text">
+        <div class="brand__name">EPIT<em>A</em>F</div>
+        <div class="brand__tag">Le cimetière des derniers mots de geeks</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Sections">
+      <a class="nav__link is-active" href="#cimetiere"><span class="dot dot--square"></span>Le cimetière</a>
+      <a class="nav__link" href="#proposer"><span class="dot dot--ink"></span>Proposer</a>
+      <a class="nav__link" href="#regles">Les règles</a>
+    </nav>
+
+    <nav class="nav nav--right" aria-label="Accès">
+      <a class="nav__link" href="#cimetiere">↓ Parcourir</a>
+      <a class="nav__link" href="/admin">✎ Modération</a>
+    </nav>
+  </header>
+
+  <!-- ============ HÉRO ============ -->
+  <section class="hero">
+    <h1 class="hero__title">Une vie entière pour trouver la bonne <em>dernière</em> phrase.</h1>
+    <p class="hero__sub">
+      EPITAF collecte les phrases qui méritent de finir gravées dans le marbre&nbsp;:
+      les erreurs 404, les sauvegardes oubliées, les déploiements du vendredi soir.
+      Chaque proposition passe entre les mains de Stéphane et Magali avant d'entrer au cimetière.
+    </p>
+    <div class="hero__actions">
+      <a class="btn" href="#proposer">Proposer une épitaphe</a>
+      <a class="btn btn--ghost" href="#cimetiere">Visiter le cimetière</a>
+      <span class="badge-new">RIP<br>&amp;<br>RUN</span>
+    </div>
+  </section>
+
+  <!-- ============ CHIFFRES ============ -->
+  <section class="cells stats" aria-label="Chiffres du cimetière">
+    <div class="cell">
+      <span class="micro micro--mute">Épitaphes gravées</span>
+      <span class="stat__value" id="stat-total">—</span>
+      <span class="leader micro micro--mute"><span>validées</span></span>
+    </div>
+    <div class="cell">
+      <span class="micro micro--mute">Catégories</span>
+      <span class="stat__value" id="stat-cats">—</span>
+      <span class="leader micro micro--mute"><span>allées du cimetière</span></span>
+    </div>
+    <div class="cell cell--paper">
+      <span class="micro micro--mute">Gardiens</span>
+      <span class="stat__value">02</span>
+      <span class="leader micro micro--mute"><span>Stéphane &amp; Magali</span></span>
+    </div>
+    <div class="cell cell--red">
+      <span class="micro">Statut du service</span>
+      <span class="stat__value">200</span>
+      <span class="micro">OK — LE CIMETIÈRE EST OUVERT</span>
+    </div>
+  </section>
+
+  <!-- ============ CIMETIÈRE ============ -->
+  <section id="cimetiere">
+    <div class="section-head">
+      <h2 class="section-head__title">Le cimetière</h2>
+      <p class="section-head__meta" id="result-count">Chargement…</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <label class="filters__search">
+        <span class="dot" aria-hidden="true"></span>
+        <input type="search" id="search" placeholder="Chercher une épitaphe, un pseudo…" aria-label="Chercher une épitaphe">
+      </label>
+      <!-- les puces de catégorie sont injectées ici -->
+    </div>
+
+    <div class="cells tombs" id="tombs">
+      <div class="empty"><h3>Ouverture des grilles…</h3><p>Un instant.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ PROPOSER ============ -->
+  <section class="cells submit" id="proposer">
+    <div class="submit__pitch">
+      <span class="micro micro--red">Formulaire · 30 secondes</span>
+      <h2>Écrivez votre <em>dernière</em> ligne.</h2>
+      <p>
+        Une bonne épitaphe de geek tient en une phrase, se comprend sans note de bas de page,
+        et fait sourire quelqu'un qui n'était pas là. Le reste, c'est du remplissage.
+      </p>
+      <ol class="submit__steps">
+        <li><b>01</b><span>Vous écrivez la phrase et choisissez une allée.</span></li>
+        <li><b>02</b><span>Elle part en file d'attente de modération.</span></li>
+        <li><b>03</b><span>Stéphane ou Magali valide — et elle est gravée.</span></li>
+      </ol>
+    </div>
+
+    <form class="form" id="submit-form" novalidate>
+      <div class="notice" id="form-notice" role="status" aria-live="polite"></div>
+
+      <div class="field">
+        <div class="field__label">
+          <span class="micro">L'épitaphe *</span>
+          <span class="micro micro--mute counter" id="counter">0 / 240</span>
+        </div>
+        <textarea id="f-text" name="text" maxlength="240" required
+                  placeholder="Il n'avait pas fait de sauvegarde."></textarea>
+        <span class="field__hint">Une phrase. Pas de paragraphe, pas de roman.</span>
+      </div>
+
+      <div class="form__row">
+        <div class="field">
+          <div class="field__label"><span class="micro">Signature</span></div>
+          <input type="text" id="f-author" name="author" maxlength="40" placeholder="Anonyme">
+          <span class="field__hint">Pseudo affiché sous la pierre.</span>
+        </div>
+        <div class="field">
+          <div class="field__label"><span class="micro">Allée</span></div>
+          <select id="f-category" name="category"></select>
+          <span class="field__hint">Là où on la rangera.</span>
+        </div>
+      </div>
+
+      <button class="btn btn--red" type="submit" id="submit-btn">
+        Envoyer à la modération <span aria-hidden="true">→</span>
+      </button>
+    </form>
+  </section>
+
+  <!-- ============ RÈGLES ============ -->
+  <section class="cells" id="regles" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="cell">
+      <span class="micro micro--red">01 — Format</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">Une phrase, point.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        240 caractères maximum. Si votre épitaphe a besoin d'un README, ce n'est pas une épitaphe.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--red">02 — Modération</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">Deux gardiens.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        Rien n'apparaît sans validation humaine. Les doublons sont refusés automatiquement.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--red">03 — Ton</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">On rit, on n'insulte pas.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        Les attaques personnelles finissent à la corbeille, pas au cimetière.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PIED ============ -->
+  <footer class="cells foot">
+    <div class="cell">
+      <div class="foot__big">EPIT<span style="color:var(--red)">A</span>F<br>DE GEEK</div>
+      <p style="margin:18px 0 0; color: var(--ink-mute); font-size: 14px; max-width: 40ch;">
+        Un recueil collaboratif de derniers mots. Aucune donnée personnelle collectée&nbsp;:
+        pas de compte, pas de traqueur.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--mute">Naviguer</span>
+      <ul class="foot__list">
+        <li><a href="#cimetiere">Le cimetière</a></li>
+        <li><a href="#proposer">Proposer une épitaphe</a></li>
+        <li><a href="#regles">Les règles</a></li>
+        <li><a href="/admin">Espace modération</a></li>
+      </ul>
+    </div>
+    <div class="cell cell--paper">
+      <span class="micro micro--mute">Gardiens du lieu</span>
+      <ul class="foot__list">
+        <li><span class="dot dot--square"></span> Stéphane</li>
+        <li><span class="dot dot--square"></span> Magali</li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<div class="colophon">
+  <span>© <span id="year">2026</span> EPITAF de geek — tous les bugs réservés.</span>
+  <span>Ci-gît une page servie en <span style="font-family:var(--font-mono)">200 OK</span>.</span>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

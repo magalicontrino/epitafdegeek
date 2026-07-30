@@ -1,0 +1,16 @@
+{
+  "name": "epitaf-de-geek",
+  "version": "1.0.0",
+  "description": "EPITAF de geek — recueil collaboratif de derniers mots pour geeks",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "reset-password": "node src/reset-password.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "private": true
+}
