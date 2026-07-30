@@ -36,7 +36,7 @@ const frDate = (iso) => {
 /* ---------- les données ---------- */
 
 const epitaphs = db
-  .prepare("SELECT id, text, author, category, created_at FROM epitaphs WHERE status = 'approved' ORDER BY id DESC")
+  .prepare("SELECT id, text, author, category, created_at, mono FROM epitaphs WHERE status = 'approved' ORDER BY id DESC")
   .all();
 
 const counts = Object.fromEntries(
@@ -52,7 +52,7 @@ const counts = Object.fromEntries(
 const tombsHtml = epitaphs
   .map((e) => {
     const search = `${e.text} ${e.author}`.toLowerCase();
-    return `        <article class="tomb" data-category="${esc(e.category)}" data-search="${esc(search)}">
+    return `        <article class="tomb${e.mono ? ' tomb--mono' : ''}" data-category="${esc(e.category)}" data-search="${esc(search)}">
           <div class="tomb__head">
             <span class="tomb__num">N°${String(e.id).padStart(3, '0')}</span>
             <span class="tomb__cat">${esc(e.category)}</span>

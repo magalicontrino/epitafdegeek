@@ -54,6 +54,12 @@ if (!db.prepare('PRAGMA table_info(admins)').all().some((c) => c.name === 'email
   db.exec("ALTER TABLE admins ADD COLUMN email TEXT NOT NULL DEFAULT ''");
 }
 
+// Certaines épitaphes sont des sorties de terminal — elles se lisent mieux
+// en chasse fixe sur fond sombre que dans la grosse police du marbre.
+if (!db.prepare('PRAGMA table_info(epitaphs)').all().some((c) => c.name === 'mono')) {
+  db.exec('ALTER TABLE epitaphs ADD COLUMN mono INTEGER NOT NULL DEFAULT 0');
+}
+
 /* ------------------------------------------------------------------ */
 /* Mots de passe                                                       */
 /* ------------------------------------------------------------------ */

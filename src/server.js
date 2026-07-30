@@ -186,7 +186,7 @@ async function handleApi(req, res, url) {
     const category = url.searchParams.get('category');
     const search = (url.searchParams.get('q') ?? '').trim();
 
-    let sql = "SELECT id, text, author, category, created_at FROM epitaphs WHERE status = 'approved'";
+    let sql = "SELECT id, text, author, category, created_at, mono FROM epitaphs WHERE status = 'approved'";
     const params = [];
     if (category && CATEGORIES.includes(category)) {
       sql += ' AND category = ?';
@@ -311,11 +311,11 @@ async function handleApi(req, res, url) {
 
         db.prepare(`
           UPDATE epitaphs
-             SET text = ?, author = ?, category = ?, status = ?,
+             SET text = ?, author = ?, category = ?, status = ?, mono = ?,
                  reviewed_at = ?, reviewed_by = ?
            WHERE id = ?
         `).run(
-          clean.text, clean.author, clean.category, status,
+          clean.text, clean.author, clean.category, status, body.mono ? 1 : 0,
           new Date().toISOString(), admin.display_name, id
         );
 

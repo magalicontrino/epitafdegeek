@@ -161,6 +161,11 @@ function renderQueue() {
             </label>
           </div>
 
+          <label style="display:flex;align-items:center;gap:9px;font-size:13px;cursor:pointer">
+            <input type="checkbox" data-field="mono" style="width:auto;margin:0"${row.mono ? ' checked' : ''}>
+            Sortie de terminal — pierre noire, chasse fixe
+          </label>
+
           <div class="notice" data-role="notice"></div>
           <div class="review__actions">${actions}</div>
         </article>`;
@@ -181,6 +186,7 @@ $('#queue').addEventListener('click', async (event) => {
     text: card.querySelector('[data-field="text"]').value,
     author: card.querySelector('[data-field="author"]').value,
     category: card.querySelector('[data-field="category"]').value,
+    mono: card.querySelector('[data-field="mono"]').checked,
   };
   if (act === 'approve') payload.status = 'approved';
   if (act === 'reject') payload.status = 'rejected';

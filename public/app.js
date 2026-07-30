@@ -92,7 +92,7 @@ function renderTombs() {
         ? ''
         : date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
       return `
-        <article class="tomb">
+        <article class="tomb${e.mono ? ' tomb--mono' : ''}">
           <div class="tomb__head">
             <span class="tomb__num">N°${String(e.id).padStart(3, '0')}</span>
             <span class="tomb__cat">${esc(e.category)}</span>
