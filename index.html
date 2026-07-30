@@ -6,7 +6,7 @@
   <title>EPITAF de geek — l'annuaire des derniers mots</title>
   <meta name="description" content="EPITAF de geek : le recueil collaboratif des phrases qui méritent de finir gravées dans le marbre. Proposez la vôtre.">
   <meta property="og:title" content="EPITAF de geek">
-  <meta property="og:description" content="Le cimetière des derniers mots de geeks. 17 épitaphes gravées.">
+  <meta property="og:description" content="Le cimetière des derniers mots de geeks. 50 épitaphes gravées.">
   <meta property="og:type" content="website">
   <!-- Chemins relatifs : la page marche aussi bien à la racine d'un domaine
        que dans un sous-dossier, comme sur les pages de projet GitHub. -->
@@ -18,7 +18,7 @@
 <div class="ticker">
   <div class="ticker__inner">
     <span class="ticker__label">Dernières volontés&nbsp;·</span>
-    <div class="ticker__scroll"><div class="ticker__track"><span>Je n&#39;avais plus de Token</span><span>Ci-gît son dernier commit : « fix final v2 (vraiment) ».</span><span>Il est passé en veille prolongée. Définitivement.</span><span>Je suis désolé, Dave. Je crains de ne pouvoir faire cela.</span><span>Ctrl+S, une seconde trop tard.</span><span>Il a débranché le mauvais câble.</span><span>while (true) { vivre(); }  // il manquait la condition de sortie</span><span>Fin de vie. Plus aucun correctif de sécurité ne sera publié.</span><span>GAME OVER — Insérez une pièce pour continuer.</span><span>Connexion perdue. Tentative de reconnexion…</span><span>404 — Vie non trouvée.</span><span>Il manquait un point-virgule ;</span><span>C’est un tout petit changement, je pousse direct en prod.</span><span>Il a répondu « oui » à rm -rf /</span><span>Je n&#39;avais plus de Token</span><span>Ci-gît son dernier commit : « fix final v2 (vraiment) ».</span><span>Il est passé en veille prolongée. Définitivement.</span><span>Je suis désolé, Dave. Je crains de ne pouvoir faire cela.</span><span>Ctrl+S, une seconde trop tard.</span><span>Il a débranché le mauvais câble.</span><span>while (true) { vivre(); }  // il manquait la condition de sortie</span><span>Fin de vie. Plus aucun correctif de sécurité ne sera publié.</span><span>GAME OVER — Insérez une pièce pour continuer.</span><span>Connexion perdue. Tentative de reconnexion…</span><span>404 — Vie non trouvée.</span><span>Il manquait un point-virgule ;</span><span>C’est un tout petit changement, je pousse direct en prod.</span><span>Il a répondu « oui » à rm -rf /</span></div></div>
+    <div class="ticker__scroll"><div class="ticker__track"><span>Il a fini par trouver l&#39;accolade manquante.</span><span>Ici dort quelqu&#39;un qui a aidé un inconnu sur Stack Overflow en 2011. Merci.</span><span>Il pensait avoir sauvegardé.</span><span>Enfin AFK.</span><span>Il a survécu à IE6, pas à ça.</span><span>Repose en paix. Ou en pièces, selon la version.</span><span>Batterie faible → arrêt du système</span><span>Compilé avec succès. 0 warning. 1 vie.</span><span>Il attendait toujours la version stable.</span><span>Il a documenté son code. Trop tard pour sa vie.</span><span>Ci-gît celui qui a répondu « oui » à « Voulez-vous vraiment ? »</span><span>Sa dernière volonté : « n&#39;y touchez pas, ça marche »</span><span>Il a fermé le dernier onglet.</span><span>while (true) { ... }  // enfin sorti</span><span>Il a fini par trouver l&#39;accolade manquante.</span><span>Ici dort quelqu&#39;un qui a aidé un inconnu sur Stack Overflow en 2011. Merci.</span><span>Il pensait avoir sauvegardé.</span><span>Enfin AFK.</span><span>Il a survécu à IE6, pas à ça.</span><span>Repose en paix. Ou en pièces, selon la version.</span><span>Batterie faible → arrêt du système</span><span>Compilé avec succès. 0 warning. 1 vie.</span><span>Il attendait toujours la version stable.</span><span>Il a documenté son code. Trop tard pour sa vie.</span><span>Ci-gît celui qui a répondu « oui » à « Voulez-vous vraiment ? »</span><span>Sa dernière volonté : « n&#39;y touchez pas, ça marche »</span><span>Il a fermé le dernier onglet.</span><span>while (true) { ... }  // enfin sorti</span></div></div>
     <a class="micro micro--red" href="#proposer">AJOUTER LA VÔTRE →</a>
   </div>
 </div>
@@ -62,7 +62,7 @@
   <section class="cells stats" aria-label="Chiffres du cimetière">
     <div class="cell">
       <span class="micro micro--mute">Épitaphes gravées</span>
-      <span class="stat__value">17</span>
+      <span class="stat__value">50</span>
       <span class="leader micro micro--mute"><span>validées</span></span>
     </div>
     <div class="cell">
@@ -85,7 +85,7 @@
   <section id="cimetiere">
     <div class="section-head">
       <h2 class="section-head__title">Le cimetière</h2>
-      <p class="section-head__meta" id="result-count">17 épitaphes affichées</p>
+      <p class="section-head__meta" id="result-count">50 épitaphes affichées</p>
     </div>
 
     <div class="filters" id="filters">
@@ -93,19 +93,415 @@
         <span class="dot" aria-hidden="true"></span>
         <input type="search" id="search" placeholder="Chercher une épitaphe, un pseudo…" aria-label="Chercher une épitaphe">
       </label>
-      <button class="chip is-active" type="button" data-cat="">Toutes <span class="chip__n">17</span></button>
-      <button class="chip" type="button" data-cat="Dev">Dev <span class="chip__n">7</span></button>
-      <button class="chip" type="button" data-cat="Sysadmin">Sysadmin <span class="chip__n">3</span></button>
-      <button class="chip" type="button" data-cat="Web">Web <span class="chip__n">1</span></button>
-      <button class="chip" type="button" data-cat="Réseau">Réseau <span class="chip__n">1</span></button>
-      <button class="chip" type="button" data-cat="Hardware">Hardware <span class="chip__n">2</span></button>
-      <button class="chip" type="button" data-cat="Gaming">Gaming <span class="chip__n">1</span></button>
+      <button class="chip is-active" type="button" data-cat="">Toutes <span class="chip__n">50</span></button>
+      <button class="chip" type="button" data-cat="Dev">Dev <span class="chip__n">18</span></button>
+      <button class="chip" type="button" data-cat="Sysadmin">Sysadmin <span class="chip__n">9</span></button>
+      <button class="chip" type="button" data-cat="Web">Web <span class="chip__n">4</span></button>
+      <button class="chip" type="button" data-cat="Réseau">Réseau <span class="chip__n">3</span></button>
+      <button class="chip" type="button" data-cat="Hardware">Hardware <span class="chip__n">3</span></button>
+      <button class="chip" type="button" data-cat="Gaming">Gaming <span class="chip__n">3</span></button>
       <button class="chip" type="button" data-cat="Sci-fi">Sci-fi <span class="chip__n">1</span></button>
       <button class="chip" type="button" data-cat="IA">IA <span class="chip__n">1</span></button>
-      <button class="chip" type="button" data-cat="Divers">Divers <span class="chip__n">0</span></button>
+      <button class="chip" type="button" data-cat="Divers">Divers <span class="chip__n">8</span></button>
     </div>
 
     <div class="cells tombs" id="tombs">
+        <article class="tomb" data-category="Dev" data-search="il a fini par trouver l&#39;accolade manquante. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°051</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Il a fini par trouver l&#39;accolade manquante.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="ici dort quelqu&#39;un qui a aidé un inconnu sur stack overflow en 2011. merci. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°050</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Ici dort quelqu&#39;un qui a aidé un inconnu sur Stack Overflow en 2011. Merci.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="il pensait avoir sauvegardé. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°049</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Il pensait avoir sauvegardé.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Gaming" data-search="enfin afk. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°048</span>
+            <span class="tomb__cat">Gaming</span>
+          </div>
+          <p class="tomb__text">Enfin AFK.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Web" data-search="il a survécu à ie6, pas à ça. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°047</span>
+            <span class="tomb__cat">Web</span>
+          </div>
+          <p class="tomb__text">Il a survécu à IE6, pas à ça.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="repose en paix. ou en pièces, selon la version. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°046</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Repose en paix. Ou en pièces, selon la version.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Hardware" data-search="batterie faible → arrêt du système anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°045</span>
+            <span class="tomb__cat">Hardware</span>
+          </div>
+          <p class="tomb__text">Batterie faible → arrêt du système</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="compilé avec succès. 0 warning. 1 vie. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°044</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Compilé avec succès. 0 warning. 1 vie.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="il attendait toujours la version stable. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°043</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Il attendait toujours la version stable.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="il a documenté son code. trop tard pour sa vie. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°042</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Il a documenté son code. Trop tard pour sa vie.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="ci-gît celui qui a répondu « oui » à « voulez-vous vraiment ? » anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°041</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Ci-gît celui qui a répondu « oui » à « Voulez-vous vraiment ? »</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="sa dernière volonté : « n&#39;y touchez pas, ça marche » anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°040</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Sa dernière volonté : « n&#39;y touchez pas, ça marche »</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="il a fermé le dernier onglet. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°039</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Il a fermé le dernier onglet.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="while (true) { ... }  // enfin sorti anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°038</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">while (true) { ... }  // enfin sorti</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="process terminated by signal 15 anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°037</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">process terminated by signal 15</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Web" data-search="http 410 gone anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°036</span>
+            <span class="tomb__cat">Web</span>
+          </div>
+          <p class="tomb__text">HTTP 410 Gone</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="kernel panic — permanent anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°035</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">KERNEL PANIC — permanent</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="&gt; whoami — personne. plus maintenant. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°034</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">&gt; whoami — Personne. Plus maintenant.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="il cherchait le bug. le bug l&#39;a trouvé. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°033</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Il cherchait le bug. Le bug l&#39;a trouvé.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Réseau" data-search="déconnecté du serveur anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°032</span>
+            <span class="tomb__cat">Réseau</span>
+          </div>
+          <p class="tomb__text">Déconnecté du serveur</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="il n&#39;avait pas lu les conditions d&#39;utilisation anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°031</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Il n&#39;avait pas lu les conditions d&#39;utilisation</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="fin de support. aucun patch prévu. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°030</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Fin de support. Aucun patch prévu.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Divers" data-search="ctrl+z indisponible anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°029</span>
+            <span class="tomb__cat">Divers</span>
+          </div>
+          <p class="tomb__text">Ctrl+Z indisponible</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Gaming" data-search="sauvegarde corrompue anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°028</span>
+            <span class="tomb__cat">Gaming</span>
+          </div>
+          <p class="tomb__text">Sauvegarde corrompue</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="sudo rm -rf /vie — il a tapé « y » trop vite anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°027</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">sudo rm -rf /vie — il a tapé « y » trop vite</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="passé en lecture seule anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°026</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Passé en lecture seule</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Web" data-search="erreur 404 : occupant non trouvé anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°025</span>
+            <span class="tomb__cat">Web</span>
+          </div>
+          <p class="tomb__text">Erreur 404 : occupant non trouvé</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Réseau" data-search="ping timeout. hôte injoignable. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°024</span>
+            <span class="tomb__cat">Réseau</span>
+          </div>
+          <p class="tomb__text">Ping timeout. Hôte injoignable.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="uptime : 87 ans. redémarrage impossible. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°023</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Uptime : 87 ans. Redémarrage impossible.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="mort un vendredi 17 h. personne n&#39;a osé rollback. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°022</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Mort un vendredi 17 h. Personne n&#39;a osé rollback.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="il a enfin quitté la boucle anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°021</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Il a enfin quitté la boucle</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="dernier commit : « petit fix rapide, je pousse en prod » anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°020</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Dernier commit : « petit fix rapide, je pousse en prod »</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="return 0; — mission accomplie anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°019</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">return 0; — mission accomplie</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>31 juil. 2026</span>
+          </div>
+        </article>
         <article class="tomb" data-category="IA" data-search="je n&#39;avais plus de token mag">
           <div class="tomb__head">
             <span class="tomb__num">N°018</span>
@@ -414,7 +810,7 @@
 
 <div class="colophon">
   <span>© 2026 EPITAF de geek — tous les bugs réservés.</span>
-  <span>17 épitaphes gravées.</span>
+  <span>50 épitaphes gravées.</span>
 </div>
 
 <script>
