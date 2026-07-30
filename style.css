@@ -495,6 +495,47 @@ button, input, select, textarea {
 .tomb__copy:focus-visible { opacity: 1; }
 .tomb__copy:hover { color: var(--red); }
 
+/* Épitaphes-terminal : ce sont des sorties de machine, pas des phrases
+   lapidaires. Pierre noire, chasse fixe, ni guillemets ni majuscule
+   d'apparat — on lit un écran, pas du marbre. */
+.tomb--mono {
+  background: var(--ink);
+  color: var(--cream);
+}
+.tomb--mono:hover { background: #111; }
+
+.tomb--mono .tomb__text {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+  color: var(--cream);
+}
+.tomb--mono .tomb__text::before,
+.tomb--mono .tomb__text::after { content: none; }
+
+/* Le curseur qui clignote encore, une fois le processus terminé. */
+.tomb--mono .tomb__text::after {
+  content: "▊";
+  color: var(--red);
+  margin-left: 4px;
+  animation: curseur 1.1s steps(2) infinite;
+}
+
+@keyframes curseur { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tomb--mono .tomb__text::after { animation: none; }
+}
+
+.tomb--mono .tomb__num    { color: #8a8279; }
+.tomb--mono .tomb__cat    { border-color: #5a544d; color: #cfc7bd; }
+.tomb--mono .tomb__foot   { color: #8a8279; }
+.tomb--mono .tomb__author { color: var(--cream); }
+.tomb--mono .tomb__copy   { color: #8a8279; }
+.tomb--mono .tomb__copy:hover { color: var(--red); }
+
 .empty {
   grid-column: 1 / -1;
   background: var(--cream);
