@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPITAF de geek — l'annuaire des derniers mots</title>
+  <meta name="description" content="EPITAF de geek : le recueil collaboratif des phrases qui méritent de finir gravées dans le marbre. Proposez la vôtre.">
+  <meta property="og:title" content="EPITAF de geek">
+  <meta property="og:description" content="Le cimetière des derniers mots de geeks. 16 épitaphes gravées.">
+  <meta property="og:type" content="website">
+  <!-- Chemins relatifs : la page marche aussi bien à la racine d'un domaine
+       que dans un sous-dossier, comme sur les pages de projet GitHub. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker__inner">
+    <span class="ticker__label">Dernières volontés&nbsp;·</span>
+    <div class="ticker__scroll"><div class="ticker__track"><span>Ci-gît son dernier commit : « fix final v2 (vraiment) ».</span><span>Il est passé en veille prolongée. Définitivement.</span><span>Je suis désolé, Dave. Je crains de ne pouvoir faire cela.</span><span>Ctrl+S, une seconde trop tard.</span><span>Il a débranché le mauvais câble.</span><span>while (true) { vivre(); }  // il manquait la condition de sortie</span><span>Fin de vie. Plus aucun correctif de sécurité ne sera publié.</span><span>GAME OVER — Insérez une pièce pour continuer.</span><span>Connexion perdue. Tentative de reconnexion…</span><span>404 — Vie non trouvée.</span><span>Il manquait un point-virgule ;</span><span>C’est un tout petit changement, je pousse direct en prod.</span><span>Il a répondu « oui » à rm -rf /</span><span>Segmentation fault (core dumped)</span><span>Ci-gît son dernier commit : « fix final v2 (vraiment) ».</span><span>Il est passé en veille prolongée. Définitivement.</span><span>Je suis désolé, Dave. Je crains de ne pouvoir faire cela.</span><span>Ctrl+S, une seconde trop tard.</span><span>Il a débranché le mauvais câble.</span><span>while (true) { vivre(); }  // il manquait la condition de sortie</span><span>Fin de vie. Plus aucun correctif de sécurité ne sera publié.</span><span>GAME OVER — Insérez une pièce pour continuer.</span><span>Connexion perdue. Tentative de reconnexion…</span><span>404 — Vie non trouvée.</span><span>Il manquait un point-virgule ;</span><span>C’est un tout petit changement, je pousse direct en prod.</span><span>Il a répondu « oui » à rm -rf /</span><span>Segmentation fault (core dumped)</span></div></div>
+    <a class="micro micro--red" href="#proposer">AJOUTER LA VÔTRE →</a>
+  </div>
+</div>
+
+<div class="shell">
+
+  <header class="masthead">
+    <div class="brand">
+      <div class="brand__flag" aria-hidden="true"></div>
+      <div class="brand__text">
+        <div class="brand__name">EPIT<em>A</em>F</div>
+        <div class="brand__tag">Le cimetière des derniers mots de geeks</div>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a class="nav__link is-active" href="#cimetiere"><span class="dot dot--square"></span>Le cimetière</a>
+      <a class="nav__link" href="#proposer"><span class="dot dot--ink"></span>Proposer</a>
+      <a class="nav__link" href="#regles">Les règles</a>
+    </nav>
+    <nav class="nav nav--right" aria-label="Accès">
+      <a class="nav__link" href="#cimetiere">↓ Parcourir</a>
+      <a class="nav__link" href="#proposer">✎ Proposer</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero__title">Une vie entière pour trouver la bonne <em>dernière</em> phrase.</h1>
+    <p class="hero__sub">
+      EPITAF collecte les phrases qui méritent de finir gravées dans le marbre&nbsp;:
+      les erreurs 404, les sauvegardes oubliées, les déploiements du vendredi soir.
+      Chaque proposition passe entre les mains de Steph et Mag avant d'entrer au cimetière.
+    </p>
+    <div class="hero__actions">
+      <a class="btn" href="#proposer">Proposer une épitaphe</a>
+      <a class="btn btn--ghost" href="#cimetiere">Visiter le cimetière</a>
+      <span class="badge-new">RIP<br>&amp;<br>RUN</span>
+    </div>
+  </section>
+
+  <section class="cells stats" aria-label="Chiffres du cimetière">
+    <div class="cell">
+      <span class="micro micro--mute">Épitaphes gravées</span>
+      <span class="stat__value">16</span>
+      <span class="leader micro micro--mute"><span>validées</span></span>
+    </div>
+    <div class="cell">
+      <span class="micro micro--mute">Catégories</span>
+      <span class="stat__value">09</span>
+      <span class="leader micro micro--mute"><span>allées du cimetière</span></span>
+    </div>
+    <div class="cell cell--paper">
+      <span class="micro micro--mute">Gardiens</span>
+      <span class="stat__value">02</span>
+      <span class="leader micro micro--mute"><span>Steph &amp; Mag</span></span>
+    </div>
+    <div class="cell cell--red">
+      <span class="micro">Statut du service</span>
+      <span class="stat__value">200</span>
+      <span class="micro">OK — LE CIMETIÈRE EST OUVERT</span>
+    </div>
+  </section>
+
+  <section id="cimetiere">
+    <div class="section-head">
+      <h2 class="section-head__title">Le cimetière</h2>
+      <p class="section-head__meta" id="result-count">16 épitaphes affichées</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <label class="filters__search">
+        <span class="dot" aria-hidden="true"></span>
+        <input type="search" id="search" placeholder="Chercher une épitaphe, un pseudo…" aria-label="Chercher une épitaphe">
+      </label>
+      <button class="chip is-active" type="button" data-cat="">Toutes <span class="chip__n">16</span></button>
+      <button class="chip" type="button" data-cat="Dev">Dev <span class="chip__n">7</span></button>
+      <button class="chip" type="button" data-cat="Sysadmin">Sysadmin <span class="chip__n">3</span></button>
+      <button class="chip" type="button" data-cat="Web">Web <span class="chip__n">1</span></button>
+      <button class="chip" type="button" data-cat="Réseau">Réseau <span class="chip__n">1</span></button>
+      <button class="chip" type="button" data-cat="Hardware">Hardware <span class="chip__n">2</span></button>
+      <button class="chip" type="button" data-cat="Gaming">Gaming <span class="chip__n">1</span></button>
+      <button class="chip" type="button" data-cat="Sci-fi">Sci-fi <span class="chip__n">1</span></button>
+      <button class="chip" type="button" data-cat="IA">IA <span class="chip__n">0</span></button>
+      <button class="chip" type="button" data-cat="Divers">Divers <span class="chip__n">0</span></button>
+    </div>
+
+    <div class="cells tombs" id="tombs">
+        <article class="tomb" data-category="Dev" data-search="ci-gît son dernier commit : « fix final v2 (vraiment) ». anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°016</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Ci-gît son dernier commit : « fix final v2 (vraiment) ».</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Hardware" data-search="il est passé en veille prolongée. définitivement. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°015</span>
+            <span class="tomb__cat">Hardware</span>
+          </div>
+          <p class="tomb__text">Il est passé en veille prolongée. Définitivement.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sci-fi" data-search="je suis désolé, dave. je crains de ne pouvoir faire cela. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°014</span>
+            <span class="tomb__cat">Sci-fi</span>
+          </div>
+          <p class="tomb__text">Je suis désolé, Dave. Je crains de ne pouvoir faire cela.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="ctrl+s, une seconde trop tard. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°013</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Ctrl+S, une seconde trop tard.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Hardware" data-search="il a débranché le mauvais câble. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°012</span>
+            <span class="tomb__cat">Hardware</span>
+          </div>
+          <p class="tomb__text">Il a débranché le mauvais câble.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="while (true) { vivre(); }  // il manquait la condition de sortie anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°011</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">while (true) { vivre(); }  // il manquait la condition de sortie</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="fin de vie. plus aucun correctif de sécurité ne sera publié. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°010</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Fin de vie. Plus aucun correctif de sécurité ne sera publié.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Gaming" data-search="game over — insérez une pièce pour continuer. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°009</span>
+            <span class="tomb__cat">Gaming</span>
+          </div>
+          <p class="tomb__text">GAME OVER — Insérez une pièce pour continuer.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Réseau" data-search="connexion perdue. tentative de reconnexion… anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°008</span>
+            <span class="tomb__cat">Réseau</span>
+          </div>
+          <p class="tomb__text">Connexion perdue. Tentative de reconnexion…</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Web" data-search="404 — vie non trouvée. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°007</span>
+            <span class="tomb__cat">Web</span>
+          </div>
+          <p class="tomb__text">404 — Vie non trouvée.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="il manquait un point-virgule ; anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°006</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Il manquait un point-virgule ;</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="c’est un tout petit changement, je pousse direct en prod. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°005</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">C’est un tout petit changement, je pousse direct en prod.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="il a répondu « oui » à rm -rf / anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°004</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Il a répondu « oui » à rm -rf /</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="segmentation fault (core dumped) anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°003</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Segmentation fault (core dumped)</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Dev" data-search="ça marchait pourtant sur ma machine. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°002</span>
+            <span class="tomb__cat">Dev</span>
+          </div>
+          <p class="tomb__text">Ça marchait pourtant sur ma machine.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+        <article class="tomb" data-category="Sysadmin" data-search="il n’avait pas fait de sauvegarde. anonyme">
+          <div class="tomb__head">
+            <span class="tomb__num">N°001</span>
+            <span class="tomb__cat">Sysadmin</span>
+          </div>
+          <p class="tomb__text">Il n’avait pas fait de sauvegarde.</p>
+          <div class="tomb__foot">
+            <span class="tomb__author">Anonyme</span>
+            <span style="flex:1;border-bottom:2px dotted currentColor;opacity:.35"></span>
+            <span>30 juil. 2026</span>
+          </div>
+        </article>
+      <div class="empty" id="empty" hidden><h3>Rien à cet endroit.</h3><p>Aucune épitaphe ne correspond.</p></div>
+    </div>
+  </section>
+
+  <section class="cells submit" id="proposer">
+    <div class="submit__pitch">
+      <span class="micro micro--red">Formulaire · 30 secondes</span>
+      <h2>Écrivez votre <em>dernière</em> ligne.</h2>
+      <p>
+        Une bonne épitaphe de geek tient en une phrase, se comprend sans note de bas de page,
+        et fait sourire quelqu'un qui n'était pas là. Le reste, c'est du remplissage.
+      </p>
+      <ol class="submit__steps">
+        <li><b>01</b><span>Vous écrivez la phrase et choisissez une allée.</span></li>
+        <li><b>02</b><span>Elle arrive dans la boîte des gardiens.</span></li>
+        <li><b>03</b><span>Steph ou Mag valide — et elle est gravée.</span></li>
+      </ol>
+    </div>
+
+    <form class="form" id="submit-form" data-unconfigured="1" novalidate>
+      <div class="notice is-visible notice--err" style="display:block">
+          Formulaire non relié : reconstruisez le site avec FORM_ENDPOINT.
+        </div>
+      <div class="notice" id="form-notice" role="status" aria-live="polite"></div>
+
+      <div class="field">
+        <div class="field__label">
+          <span class="micro">L'épitaphe *</span>
+          <span class="micro micro--mute counter" id="counter">0 / 240</span>
+        </div>
+        <textarea id="f-text" name="epitaphe" maxlength="240" required
+                  placeholder="Il n'avait pas fait de sauvegarde."></textarea>
+        <span class="field__hint">Une phrase. Pas de paragraphe, pas de roman.</span>
+      </div>
+
+      <div class="form__row">
+        <div class="field">
+          <div class="field__label"><span class="micro">Signature</span></div>
+          <input type="text" id="f-author" name="signature" maxlength="40" placeholder="Anonyme">
+          <span class="field__hint">Pseudo affiché sous la pierre.</span>
+        </div>
+        <div class="field">
+          <div class="field__label"><span class="micro">Allée</span></div>
+          <select id="f-category" name="allee"><option value="Dev" selected>Dev</option><option value="Sysadmin">Sysadmin</option><option value="Web">Web</option><option value="Réseau">Réseau</option><option value="Hardware">Hardware</option><option value="Gaming">Gaming</option><option value="Sci-fi">Sci-fi</option><option value="IA">IA</option><option value="Divers">Divers</option></select>
+          <span class="field__hint">Là où on la rangera.</span>
+        </div>
+      </div>
+
+      <button class="btn btn--red" type="submit" id="submit-btn">
+        Envoyer aux gardiens <span aria-hidden="true">→</span>
+      </button>
+    </form>
+  </section>
+
+  <section class="cells" id="regles" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="cell">
+      <span class="micro micro--red">01 — Format</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">Une phrase, point.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        240 caractères maximum. Si votre épitaphe a besoin d'un README, ce n'est pas une épitaphe.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--red">02 — Modération</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">Deux gardiens.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        Rien n'apparaît sans validation humaine. Les doublons sont écartés.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--red">03 — Ton</span>
+      <h3 style="margin: 14px 0 10px; font-size: 24px;">On rit, on n'insulte pas.</h3>
+      <p style="margin:0; color: var(--ink-soft); font-size: 15px;">
+        Les attaques personnelles finissent à la corbeille, pas au cimetière.
+      </p>
+    </div>
+  </section>
+
+  <footer class="cells foot">
+    <div class="cell">
+      <div class="foot__big">EPIT<span style="color:var(--red)">A</span>F<br>DE GEEK</div>
+      <p style="margin:18px 0 0; color: var(--ink-mute); font-size: 14px; max-width: 40ch;">
+        Un recueil collaboratif de derniers mots. Aucune donnée personnelle collectée&nbsp;:
+        pas de compte, pas de traqueur.
+      </p>
+    </div>
+    <div class="cell">
+      <span class="micro micro--mute">Naviguer</span>
+      <ul class="foot__list">
+        <li><a href="#cimetiere">Le cimetière</a></li>
+        <li><a href="#proposer">Proposer une épitaphe</a></li>
+        <li><a href="#regles">Les règles</a></li>
+      </ul>
+    </div>
+    <div class="cell cell--paper">
+      <span class="micro micro--mute">Gardiens du lieu</span>
+      <ul class="foot__list">
+        <li><span class="dot dot--square"></span> Steph</li>
+        <li><span class="dot dot--square"></span> Mag</li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<div class="colophon">
+  <span>© 2026 EPITAF de geek — tous les bugs réservés.</span>
+  <span>16 épitaphes gravées.</span>
+</div>
+
+<script>
+(function () {
+  // Vitesse de lecture constante du bandeau, quel que soit son contenu.
+  var track = document.querySelector('.ticker__track');
+  if (track && track.offsetWidth) {
+    track.style.animationDuration = Math.round(track.offsetWidth / 45) + 's';
+  }
+
+  var tombs = [].slice.call(document.querySelectorAll('.tomb'));
+  var chips = [].slice.call(document.querySelectorAll('.chip'));
+  var search = document.getElementById('search');
+  var count = document.getElementById('result-count');
+  var empty = document.getElementById('empty');
+  var category = '';
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    tombs.forEach(function (t) {
+      var ok = (!category || t.dataset.category === category) &&
+               (!q || t.dataset.search.indexOf(q) !== -1);
+      t.hidden = !ok;
+      if (ok) shown++;
+    });
+    empty.hidden = shown !== 0;
+    count.textContent = shown
+      ? shown + ' épitaphe' + (shown > 1 ? 's' : '') + ' affichée' + (shown > 1 ? 's' : '')
+      : 'Aucun résultat';
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      category = chip.dataset.cat;
+      chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+      apply();
+    });
+  });
+
+  var timer;
+  search.addEventListener('input', function () {
+    clearTimeout(timer);
+    timer = setTimeout(apply, 120);
+  });
+
+  // Formulaire : envoi en arrière-plan pour rester sur la page.
+  var form = document.getElementById('submit-form');
+  var text = document.getElementById('f-text');
+  var counter = document.getElementById('counter');
+  var notice = document.getElementById('form-notice');
+
+  text.addEventListener('input', function () {
+    counter.textContent = text.value.length + ' / 240';
+    counter.classList.toggle('is-over', text.value.length > 230);
+  });
+
+  form.addEventListener('submit', function (event) {
+    if (form.dataset.unconfigured) { event.preventDefault(); return; }
+    event.preventDefault();
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('refus du service');
+        notice.className = 'notice is-visible notice--ok';
+        notice.textContent = 'Proposition envoyée. Elle apparaîtra après validation par Steph ou Mag.';
+        form.reset();
+        counter.textContent = '0 / 240';
+      })
+      .catch(function () {
+        notice.className = 'notice is-visible notice--err';
+        notice.textContent = "L'envoi a échoué. Réessayez dans un instant.";
+      })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
