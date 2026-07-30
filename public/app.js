@@ -136,6 +136,17 @@ function renderTicker() {
   }
   const items = sample.map((e) => `<span>${esc(e.text)}</span>`).join('');
   track.innerHTML = items + items;
+  setTickerSpeed(track);
+}
+
+// Le ruban parcourt sa propre largeur à chaque tour. Fixer la durée ferait
+// donc accélérer le bandeau à mesure que le cimetière se remplit : on fixe
+// une vitesse de lecture, et la durée s'ajuste.
+const TICKER_PIXELS_PER_SECOND = 45;
+
+function setTickerSpeed(track) {
+  const width = track.offsetWidth;
+  if (width) track.style.animationDuration = Math.round(width / TICKER_PIXELS_PER_SECOND) + 's';
 }
 
 /* ---------- chargement ---------- */

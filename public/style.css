@@ -170,10 +170,13 @@ button, input, select, textarea {
   white-space: nowrap;
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
+/* La durée est recalculée en JavaScript à partir de la largeur réelle du
+   ruban, pour garder une vitesse de lecture constante quel que soit le
+   nombre d'épitaphes. Celle-ci n'est qu'un repli. */
 .ticker__track {
   display: inline-block;
   padding-left: 100%;
-  animation: slide 46s linear infinite;
+  animation: slide 150s linear infinite;
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--ink-soft);
