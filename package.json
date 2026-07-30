@@ -8,7 +8,8 @@
     "start": "node src/server.js",
     "build": "node src/build-static.js",
     "dev": "node --watch src/server.js",
-    "reset-password": "node src/reset-password.js"
+    "reset-password": "node src/reset-password.js",
+    "publier": "bash scripts/publier.sh"
   },
   "engines": {
     "node": ">=22.5.0"
