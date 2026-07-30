@@ -47,6 +47,13 @@ db.exec(`
   );
 `);
 
+// L'adresse de chaque gardien. Volontairement absente du code : le dépôt
+// est public, et une adresse en clair y serait moissonnée par les robots.
+// Elle ne vit que dans la base locale — voir « npm run adresse ».
+if (!db.prepare('PRAGMA table_info(admins)').all().some((c) => c.name === 'email')) {
+  db.exec("ALTER TABLE admins ADD COLUMN email TEXT NOT NULL DEFAULT ''");
+}
+
 /* ------------------------------------------------------------------ */
 /* Mots de passe                                                       */
 /* ------------------------------------------------------------------ */

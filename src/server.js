@@ -241,7 +241,11 @@ async function handleApi(req, res, url) {
     const username = String(body.username ?? '').trim().toLowerCase();
     const password = String(body.password ?? '');
 
-    const admin = db.prepare('SELECT * FROM admins WHERE username = ?').get(username);
+    // On accepte l'identifiant court ou l'adresse e-mail, au choix.
+    const admin = db
+      .prepare("SELECT * FROM admins WHERE username = ? OR (email <> '' AND lower(email) = ?)")
+      .get(username, username);
+
     if (!admin || !verifyPassword(password, admin.salt, admin.password_hash)) {
       return sendJson(res, 401, { error: 'Identifiant ou mot de passe incorrect.' });
     }
