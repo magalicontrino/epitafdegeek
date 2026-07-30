@@ -1,11 +1,17 @@
 import { DatabaseSync } from 'node:sqlite';
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
 import { mkdirSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
-const dataDir = join(rootDir, 'data');
+
+// En ligne, DATA_DIR pointe vers le volume persistant de l'hébergeur :
+// sans cela, un redéploiement effacerait toutes les épitaphes.
+const dataDir = process.env.DATA_DIR
+  ? resolve(process.env.DATA_DIR)
+  : join(rootDir, 'data');
+
 mkdirSync(dataDir, { recursive: true });
 
 export const db = new DatabaseSync(join(dataDir, 'epitaf.db'));

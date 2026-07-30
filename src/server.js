@@ -12,6 +12,11 @@ const publicDir = join(rootDir, 'public');
 const PORT = Number(process.env.PORT ?? 3000);
 const SESSION_TTL_MS = 1000 * 60 * 60 * 12; // 12 h
 
+// En ligne, le site tourne derrière un reverse proxy (Fly, Render, nginx…).
+// À n'activer QUE dans ce cas : sinon n'importe qui pourrait se fabriquer
+// un faux X-Forwarded-For et contourner la limite anti-spam.
+const TRUST_PROXY = process.env.TRUST_PROXY === '1';
+
 export const CATEGORIES = [
   'Dev', 'Sysadmin', 'Web', 'Réseau', 'Hardware',
   'Gaming', 'Sci-fi', 'IA', 'Divers',
@@ -63,9 +68,27 @@ function parseCookies(req) {
   );
 }
 
+function clientIp(req) {
+  if (TRUST_PROXY) {
+    const forwarded = req.headers['x-forwarded-for'];
+    if (typeof forwarded === 'string' && forwarded.length) {
+      return forwarded.split(',')[0].trim();
+    }
+  }
+  return req.socket.remoteAddress ?? 'inconnu';
+}
+
 function clientIpHash(req) {
-  const ip = req.socket.remoteAddress ?? 'inconnu';
-  return createHash('sha256').update(ip).digest('hex').slice(0, 16);
+  return createHash('sha256').update(clientIp(req)).digest('hex').slice(0, 16);
+}
+
+// Le proxy termine le TLS : la connexion vue par Node est en clair, mais le
+// visiteur, lui, est bien en HTTPS — le cookie doit alors porter Secure.
+function isHttps(req) {
+  if (TRUST_PROXY && req.headers['x-forwarded-proto']) {
+    return String(req.headers['x-forwarded-proto']).split(',')[0].trim() === 'https';
+  }
+  return Boolean(req.socket.encrypted);
 }
 
 // Les requêtes qui modifient l'état doivent venir de la page elle-même.
@@ -104,8 +127,9 @@ function currentAdmin(req) {
     .get(session.username) ?? null;
 }
 
-function sessionCookie(token, maxAgeSeconds) {
-  return `epitaf_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSeconds}`;
+function sessionCookie(req, token, maxAgeSeconds) {
+  const secure = isHttps(req) ? '; Secure' : '';
+  return `epitaf_session=${token}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=${maxAgeSeconds}`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -231,14 +255,14 @@ async function handleApi(req, res, url) {
       res,
       200,
       { admin: { username: admin.username, display_name: admin.display_name } },
-      { 'set-cookie': sessionCookie(token, SESSION_TTL_MS / 1000) }
+      { 'set-cookie': sessionCookie(req, token, SESSION_TTL_MS / 1000) }
     );
   }
 
   if (path === '/api/admin/logout' && method === 'POST') {
     const token = parseCookies(req).epitaf_session;
     if (token) db.prepare('DELETE FROM sessions WHERE token = ?').run(token);
-    return sendJson(res, 200, { ok: true }, { 'set-cookie': sessionCookie('', 0) });
+    return sendJson(res, 200, { ok: true }, { 'set-cookie': sessionCookie(req, '', 0) });
   }
 
   if (path === '/api/admin/me' && method === 'GET') {
@@ -368,4 +392,5 @@ const server = createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`⚰️  EPITAF de geek — http://localhost:${PORT}`);
   console.log(`   Modération       — http://localhost:${PORT}/admin`);
+  if (TRUST_PROXY) console.log('   Mode proxy activé (X-Forwarded-For, cookie Secure).');
 });

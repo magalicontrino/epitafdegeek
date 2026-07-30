@@ -72,17 +72,29 @@ en haut de `src/server.js`.
 
 ## Mettre le site en ligne
 
-Le serveur écoute sur le port défini par la variable `PORT` (3000 par défaut) :
+Trois variables d'environnement suffisent :
+
+| Variable | Défaut | À quoi elle sert |
+|---|---|---|
+| `PORT` | `3000` | Port d'écoute. |
+| `DATA_DIR` | `./data` | Où vit la base. **À faire pointer vers un volume persistant.** |
+| `TRUST_PROXY` | *(inactif)* | Mettre à `1` derrière un reverse proxy. |
 
 ```bash
-PORT=8080 npm start
+PORT=8080 DATA_DIR=/data TRUST_PROXY=1 npm start
 ```
 
-Trois points à régler avant une mise en ligne publique :
+`TRUST_PROXY=1` fait deux choses : le serveur lit l'adresse réelle du visiteur
+dans `X-Forwarded-For` (sinon l'anti-spam voit tout le monde comme une seule
+personne, celle du proxy), et il ajoute l'attribut `Secure` au cookie de session
+quand le proxy annonce `X-Forwarded-Proto: https`.
 
-1. Placer le site derrière **HTTPS** (un reverse proxy nginx ou Caddy suffit) et
-   ajouter l'attribut `Secure` au cookie de session dans `src/server.js`.
-2. Le compteur anti-spam se base sur `req.socket.remoteAddress` : derrière un
-   proxy, toutes les visites auront la même adresse. Il faudra lire
-   `X-Forwarded-For` — uniquement si le proxy est de confiance.
-3. Sauvegarder `data/epitaf.db` : c'est là que vivent toutes les épitaphes.
+⚠️ **Ne l'activez que derrière un vrai proxy.** Exposé en direct, n'importe qui
+pourrait envoyer un faux `X-Forwarded-For` et contourner la limite anti-spam.
+
+Deux points restent à votre charge :
+
+1. **Le disque.** Beaucoup d'hébergeurs donnent un système de fichiers éphémère :
+   à chaque redéploiement, tout ce que l'application a écrit disparaît. Il faut
+   un volume persistant monté sur `DATA_DIR`, sinon les épitaphes s'effacent.
+2. **Les sauvegardes.** Copier `epitaf.db` suffit — c'est un seul fichier.
