@@ -13,15 +13,13 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { db } from './db.js';
 import { CATEGORIES } from './categories.js';
+import { SITE } from './config.js';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = join(rootDir, 'public');
 const distDir = join(rootDir, 'dist');
 
-// Adresse du service qui reçoit les propositions (Formspree, Basin…).
-// À renseigner dans .env ou en ligne de commande :
-//   FORM_ENDPOINT=https://formspree.io/f/xxxxxxx npm run build
-const FORM_ENDPOINT = process.env.FORM_ENDPOINT ?? '';
+const FORM_ENDPOINT = SITE.formEndpoint;
 
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) =>
@@ -401,8 +399,9 @@ copyFileSync(join(publicDir, 'style.css'), join(distDir, 'style.css'));
 copyFileSync(join(publicDir, 'favicon.svg'), join(distDir, 'favicon.svg'));
 
 console.log(`dist/ fabriqué — ${epitaphs.length} épitaphes gravées.`);
-if (!FORM_ENDPOINT) {
-  console.log('\n⚠  FORM_ENDPOINT absent : le formulaire est inerte.');
-  console.log('   Créez un formulaire (Formspree, Basin…) puis relancez :');
-  console.log('   FORM_ENDPOINT=https://formspree.io/f/xxxxxxx npm run build\n');
+if (FORM_ENDPOINT) {
+  console.log(`   Les propositions partiront vers ${FORM_ENDPOINT}`);
+} else {
+  console.log('\n⚠  Aucune adresse de formulaire dans src/config.js :');
+  console.log("   les visiteurs ne pourront rien vous envoyer.\n");
 }

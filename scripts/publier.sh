@@ -38,10 +38,11 @@ cp -R dist/. "$ATELIER"/
 # Sans ce fichier, GitHub Pages ignore tout ce qui commence par un souligné.
 touch "$ATELIER/.nojekyll"
 
-# Nom de domaine personnalisé, si vous en avez configuré un.
-if [ -n "${DOMAINE:-}" ]; then
-  echo "$DOMAINE" > "$ATELIER/CNAME"
-  echo "→ Domaine : $DOMAINE"
+# Nom de domaine, lu dans src/config.js (surchargeable par la variable DOMAINE).
+DOMAINE_SITE=$(node -e "import('./src/config.js').then(m => process.stdout.write(m.SITE.domaine))")
+if [ -n "$DOMAINE_SITE" ]; then
+  echo "$DOMAINE_SITE" > "$ATELIER/CNAME"
+  echo "→ Domaine : $DOMAINE_SITE"
 fi
 
 cd "$ATELIER"
