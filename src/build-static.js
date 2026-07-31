@@ -103,7 +103,7 @@ const html = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EPITAF de geek — l'annuaire des derniers mots</title>
-  <meta name="description" content="Un cimetière de phrases : celles qu'on aimerait laisser derrière soi après une vie passée devant un écran. Proposez la vôtre.">
+  <meta name="description" content="La phrase qu'on aimerait laisser derrière soi après une vie passée devant un écran. Proposez la vôtre.">
   <meta property="og:title" content="EPITAF de geek">
   <meta property="og:description" content="Le cimetière des derniers mots de geeks. ${epitaphs.length} épitaphes gravées.">
   <meta property="og:type" content="website">
@@ -146,8 +146,8 @@ const html = `<!doctype html>
   <section class="hero">
     <h1 class="hero__title">Votre dernière phrase n'aura pas de <em>version 2</em>.</h1>
     <p class="hero__sub">
-      Un cimetière de phrases. Celles qu'on aimerait laisser derrière soi après
-      une vie passée devant un écran.
+      La phrase qu'on aimerait laisser derrière soi après une vie passée
+      devant un écran.
     </p>
     <div class="hero__actions">
       <a class="btn" href="#proposer">Proposer une épitaphe</a>
